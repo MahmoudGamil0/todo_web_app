@@ -9,8 +9,10 @@ def add_todo():
     write_todo(todos)
 
 st.title('My ToDo App')
-st.subheader("This is my shit")
-st.write("This app is to increase your shit, mf")
+st.write("This app will increase nothing")
+
+st.text_input(label = '', placeholder = 'Add new ToDo',
+              on_change = add_todo, key = 'new_todo')
 
 for index, todo in enumerate(todos):
     check =  st.checkbox(todo, key = todo)
@@ -19,6 +21,3 @@ for index, todo in enumerate(todos):
         write_todo(todos)
         del st.session_state[todo]
         st.rerun()
-
-st.text_input(label = '', placeholder = 'Add new ToDo',
-              on_change = add_todo, key = 'new_todo')
